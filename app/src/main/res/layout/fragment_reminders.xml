@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+            <TextView
+                    android:id="@+id/textRemindersTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Recordatorios"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonAddReminder"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Agregar Recordatorio"
+                    app:icon="@drawable/icon_add"
+                    app:iconTint="@color/black"
+                    style="@style/Widget.MaterialComponents.Button.Icon" android:drawableTint="#FFFFFF"
+                    android:backgroundTint="#ADF4F4F4"/>
+
+
+        </LinearLayout>
+
+        <!-- Medicamentos -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginTop="16dp">
+            <TextView
+                    android:id="@+id/textMedicamentosTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medicamentos"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            <TextView
+                    android:id="@+id/textMedicamentosSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tus medicamentos programados"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewMedicamentos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+
+        <!-- Citas Médicas -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginTop="16dp">
+            <TextView
+                    android:id="@+id/textCitasTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Citas Médicas"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            <TextView
+                    android:id="@+id/textCitasSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tus próximas consultas"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewCitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
