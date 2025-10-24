@@ -97,10 +97,11 @@ class RemindersFragment : Fragment() {
                     }
                 }
 
-                override fun onFailure(call: Call<List<RecordatorioResponse>>, t: Throwable) {
+                override fun onFailure(call: Call<List<RecordatorioResponse>>, exception: Throwable) {
                     if (!isAdded) return
-                    Toast.makeText(requireContext(), "Fallo en la conexión: ${t.localizedMessage ?: t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Fallo en la conexión: ${exception.localizedMessage ?: exception.message}", Toast.LENGTH_SHORT).show()
                 }
+
             })
     }
 

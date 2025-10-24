@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:layout_margin="8dp"
+                                                   app:cardCornerRadius="12dp"
+                                                   app:cardElevation="4dp"
+                                                   android:clickable="true"
+                                                   android:focusable="true"
+                                                   android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <TextView
+                android:id="@+id/IdRecuerdo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        <TextView
+                android:id="@+id/tituloRecuerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#E0E0E0" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+            <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@android:drawable/ic_menu_recent_history"
+                    android:contentDescription="Fecha"
+                    app:tint="@android:color/darker_gray" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Fecha:"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                    android:id="@+id/fechaRecuerdo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Descripción:"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray" />
+
+        <TextView
+                android:id="@+id/descripcionRecuerdo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:lineSpacingExtra="2dp" />
+
+        <LinearLayout
+                android:id="@+id/layoutPersonas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personas presentes:"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/darker_gray" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:contentDescription="Personas"
+                        app:tint="@android:color/darker_gray" />
+
+                <TextView
+                        android:id="@+id/personasRecuerdo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:textSize="14sp"
+                        android:textColor="@android:color/black"
+                        android:maxLines="2"
+                        android:ellipsize="end" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

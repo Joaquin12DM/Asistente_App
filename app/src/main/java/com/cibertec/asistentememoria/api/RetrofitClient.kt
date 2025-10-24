@@ -26,4 +26,8 @@ object RetrofitClient {
         RetrofitClient.retrofit.create(ApiRecordatorioService::class.java)
     }
 
+    val apiMomento: ApiMomentoService by lazy {
+        RetrofitClient.retrofit.create(ApiMomentoService::class.java)
+    }
+
 }

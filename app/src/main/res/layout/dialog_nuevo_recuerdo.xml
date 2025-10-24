@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="30dp">
+
+    <TextView
+            android:id="@+id/textDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo Recuerdo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    <TextView
+            android:id="@+id/textDialogSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registra un momento importante"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginTop="6dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Título">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                android:maxLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripción"
+            android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:gravity="top"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Fecha">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+                android:layout_width="12dp"
+                android:layout_height="0dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Hora">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editHora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="time" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Personas presentes"
+            android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPersonas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="16dp">
+
+        <Button
+                android:id="@+id/buttonCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                style="?attr/materialButtonOutlinedStyle" />
+
+        <Button
+                android:id="@+id/buttonGuardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:layout_marginStart="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

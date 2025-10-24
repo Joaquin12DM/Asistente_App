@@ -35,9 +35,15 @@ class MainActivity : AppCompatActivity() {
                     val fragment = RemindersFragment.newInstance(userId)
                     setCurrentFragment(fragment)
                 }
-                R.id.menu_recuerdos -> setCurrentFragment(RecuerdosFragment())
+                R.id.menu_recuerdos -> {
+                    val fragment = RecuerdosFragment.newInstance(userId)
+                    setCurrentFragment(fragment)
+                }
                 R.id.menu_ubicacion -> setCurrentFragment(UbicacionFragment())
-                R.id.menu_perfil -> setCurrentFragment(PerfilFragment())
+                R.id.menu_perfil ->{
+                    val fragment = PerfilFragment.newInstance(userId)
+                    setCurrentFragment(fragment)
+                }
             }
             true
         }
