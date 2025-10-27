@@ -5,7 +5,7 @@ data class UserRequest(
     val apellido: String = "",
     val email: String = "",
     val contrasena: String = "",
-    val fechaNacimiento: String = ""
+    val fechaNacimiento: String = "",
 )
 
 data class UserRequestLogin(
@@ -19,5 +19,13 @@ data class UserResponse(
     val apellido: String = "",
     val email: String = "",
     val contrasena: String = "",
-    val fechaNacimiento: String = ""
+    val fechaNacimiento: String = "",
+    val telefono: String =""
+)
+
+data class UsuarioRequestEdit(
+    val nombre: String = "",
+    val apellido: String = "",
+    val telefono: String? ="",
+    val fechaNacimiento: String? = ""
 )

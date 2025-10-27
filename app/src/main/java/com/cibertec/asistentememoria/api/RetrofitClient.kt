@@ -30,4 +30,20 @@ object RetrofitClient {
         RetrofitClient.retrofit.create(ApiMomentoService::class.java)
     }
 
+    val apiAmigos: ApiAmigosService by lazy {
+        RetrofitClient.retrofit.create(ApiAmigosService::class.java)
+    }
+
+    val apiSituacionMedica: ApiSituacionMedicaService by lazy {
+        RetrofitClient.retrofit.create(ApiSituacionMedicaService::class.java)
+    }
+
+    val apiFamiliares: ApiFamiliaresService by lazy {
+        RetrofitClient.retrofit.create(ApiFamiliaresService::class.java)
+    }
+
+    val apiInformacionPersonal: ApiInformacionPersonalService by lazy {
+        RetrofitClient.retrofit.create(ApiInformacionPersonalService::class.java)
+    }
+
 }
