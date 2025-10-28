@@ -78,14 +78,22 @@ class PerfilFragment : Fragment() {
         textColorFavorito = view.findViewById(R.id.textColorFavorito)
         textCondicionMedica = view.findViewById(R.id.textCondicionMedica)
         textAlergias = view.findViewById(R.id.textAlergias)
+
         recyclerViewAmigos = view.findViewById(R.id.recyclerViewAmigos)
         recyclerViewAmigos.layoutManager = LinearLayoutManager(requireContext())
-        amigoAdapter = AmigoAdapter(emptyList())
+        amigoAdapter = AmigoAdapter(emptyList()) { amigo ->
+            eliminarAmigo(amigo)
+        }
         recyclerViewAmigos.adapter = amigoAdapter
+
         recyclerViewFamiliares = view.findViewById(R.id.recyclerViewFamiliares)
         recyclerViewFamiliares.layoutManager = LinearLayoutManager(requireContext())
-        familiarAdapter = FamiliarAdapter(emptyList())
+        familiarAdapter = FamiliarAdapter(emptyList()) { familiar ->
+            eliminarFamiliar(familiar)
+        }
         recyclerViewFamiliares.adapter = familiarAdapter
+
+
 
 
 
@@ -246,6 +254,42 @@ class PerfilFragment : Fragment() {
                 }
             })
     }
+
+    private fun eliminarAmigo(amigo: AmigosResponse) {
+        AmigosController().deleteAmigos(amigo.id)
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Amigo eliminado", Toast.LENGTH_SHORT).show()
+                        obtenerAmigos()
+                    } else {
+                        Toast.makeText(requireContext(), "Error al eliminar: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Error de conexión: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+    private fun eliminarFamiliar(familiar: FamiliaresResponse) {
+        FamiliaresController().deleteFamiliar(familiar.id)
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Familiar eliminado", Toast.LENGTH_SHORT).show()
+                        obtenerFamiliares()
+                    } else {
+                        Toast.makeText(requireContext(), "Error al eliminar: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Error de conexión: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
+            })
+    }
+
 
 
 

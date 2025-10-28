@@ -6,6 +6,7 @@ import com.cibertec.asistentememoria.model.SituacionMedicaRequest
 import com.cibertec.asistentememoria.model.SituacionMedicaResponse
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -17,4 +18,9 @@ interface ApiAmigosService {
 
     @GET("amigos/usuario/{usuarioId}")
     fun obtenerAmigos(@Path("usuarioId") userId: Int): Call<List<AmigosResponse>>
+
+    @DELETE("amigos/{id}")
+    fun deleteAmigos(@Path("id") amigosId: Int): Call<Void>
+
+
 }

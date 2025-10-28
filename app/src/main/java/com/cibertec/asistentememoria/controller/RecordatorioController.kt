@@ -20,8 +20,14 @@ class RecordatorioController {
         return apiRecordatorio.buscarPorTipo(recordatorio)
     }
 
-    fun obtenerRecordatorios(userId: Int): Call<List<RecordatorioResponse>>{
-        return apiRecordatorio.obtenerRecordatorios(userId)
+    fun obtenerRecordatoriosHoy(userId: Int): Call<List<RecordatorioResponse>>{
+        return apiRecordatorio.obtenerRecordatoriosHoy(userId)
     }
+
+    fun deleteRecordatorio(recordatorioId: Int): Call<Void>{
+        return apiRecordatorio.deleteRecordatorio(recordatorioId)
+    }
+
+
 
 }

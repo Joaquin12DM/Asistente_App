@@ -19,4 +19,8 @@ class MomentoController {
         return apiMomento.obtenerMomentos(userId)
     }
 
+    fun deleteMomento(momentoId: Int): Call<Void>{
+        return apiMomento.deleteMomento(momentoId)
+    }
+
 }

@@ -8,6 +8,7 @@ import com.cibertec.asistentememoria.model.FamiliaresResponse
 import com.cibertec.asistentememoria.model.InformacionPersonalRequest
 import com.cibertec.asistentememoria.model.InformacionPersonalResponse
 import retrofit2.Call
+import retrofit2.http.Path
 
 class InformacionPersonalController {
 
@@ -19,5 +20,9 @@ class InformacionPersonalController {
 
     fun obtenerInfoPerso(userId: Int): Call<InformacionPersonalResponse> {
         return apiInfoPerso.obtenerInformacionPersonal(userId)
+    }
+
+    fun deleteInformacionPersonal(informacionPersonalId: Int): Call<Void>{
+        return apiInfoPerso.deleteInformacionPersonal(informacionPersonalId)
     }
 }

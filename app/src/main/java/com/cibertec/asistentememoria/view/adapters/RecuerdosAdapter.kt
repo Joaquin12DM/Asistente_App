@@ -3,14 +3,17 @@ package com.cibertec.asistentememoria.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.asistentememoria.R
 import com.cibertec.asistentememoria.model.MomentoResponse
+import kotlin.toString
 
 class RecuerdosAdapter(
-    private var momentos: List<MomentoResponse>
+    private var momentos: List<MomentoResponse>,
+    private val onEliminarClick: (MomentoResponse) -> Unit
 ) : RecyclerView.Adapter<RecuerdosAdapter.RecuerdoViewHolder>() {
 
     class RecuerdoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,6 +22,7 @@ class RecuerdosAdapter(
         val tvDescripcion: TextView = view.findViewById(R.id.descripcionRecuerdo)
         val layoutPersonas: LinearLayout = view.findViewById(R.id.layoutPersonas)
         val tvPersonas: TextView = view.findViewById(R.id.personasRecuerdo)
+        val btnEliminar: Button = view.findViewById(R.id.btnEliminarRecuerdo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecuerdoViewHolder {
@@ -41,6 +45,10 @@ class RecuerdosAdapter(
         } else {
             holder.layoutPersonas.visibility = View.GONE
         }
+
+        holder.btnEliminar.setOnClickListener {
+            onEliminarClick(momento)
+        }
     }
 
     override fun getItemCount() = momentos.size
@@ -50,3 +58,4 @@ class RecuerdosAdapter(
         notifyDataSetChanged()
     }
 }
+

@@ -7,6 +7,7 @@ import com.cibertec.asistentememoria.api.RetrofitClient
 import com.cibertec.asistentememoria.model.SituacionMedicaRequest
 import com.cibertec.asistentememoria.model.SituacionMedicaResponse
 import retrofit2.Call
+import retrofit2.http.Path
 
 class SItuacionMedicaController {
 
@@ -18,5 +19,9 @@ class SItuacionMedicaController {
 
     fun obtenerSituMedica(userId: Int): Call<SituacionMedicaResponse>{
         return apiSituMedica.obtenerSituacionMedica(userId)
+    }
+
+    fun deleteSituacionMedica(situacionMedicaId: Int): Call<Void>{
+        return apiSituMedica.deleteSituacionMedica(situacionMedicaId)
     }
 }

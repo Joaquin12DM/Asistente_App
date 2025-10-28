@@ -50,8 +50,12 @@ class RemindersFragment : Fragment() {
         recyclerViewMedicamentos.layoutManager = LinearLayoutManager(requireContext())
         recyclerViewCitas.layoutManager = LinearLayoutManager(requireContext())
 
-        adapterMedicamentos = RecordatorioAdapter(emptyList())
-        adapterCitas = RecordatorioAdapter(emptyList())
+        adapterMedicamentos = RecordatorioAdapter(emptyList()) { recordatorio ->
+            eliminarRecordatorio(recordatorio)
+        }
+        adapterCitas = RecordatorioAdapter(emptyList()) { recordatorio ->
+            eliminarRecordatorio(recordatorio)
+        }
 
         recyclerViewMedicamentos.adapter = adapterMedicamentos
         recyclerViewCitas.adapter = adapterCitas
@@ -68,6 +72,7 @@ class RemindersFragment : Fragment() {
         cargarRecordatorios()
         return view
     }
+
 
     private fun cargarRecordatorios() {
         cargarRecordatoriosPorTipo("Medicamento")
@@ -102,6 +107,24 @@ class RemindersFragment : Fragment() {
                     Toast.makeText(requireContext(), "Fallo en la conexión: ${exception.localizedMessage ?: exception.message}", Toast.LENGTH_SHORT).show()
                 }
 
+            })
+    }
+
+    private fun eliminarRecordatorio(recordatorio: RecordatorioResponse) {
+        controllerTipoRecordatorio.deleteRecordatorio(recordatorio.id)
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Recordatorio eliminado", Toast.LENGTH_SHORT).show()
+                        cargarRecordatorios()
+                    } else {
+                        Toast.makeText(requireContext(), "Error al eliminar: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(requireContext(), "Error de conexión: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
             })
     }
 

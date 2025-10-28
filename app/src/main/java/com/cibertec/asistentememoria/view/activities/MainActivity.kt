@@ -11,7 +11,6 @@ import com.cibertec.asistentememoria.view.fragments.HomeFragment
 import com.cibertec.asistentememoria.view.fragments.PerfilFragment
 import com.cibertec.asistentememoria.view.fragments.RecuerdosFragment
 import com.cibertec.asistentememoria.view.fragments.RemindersFragment
-import com.cibertec.asistentememoria.view.fragments.UbicacionFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> setCurrentFragment(HomeFragment())
+
                 R.id.menu_reminders -> {
                     val fragment = RemindersFragment.newInstance(userId)
                     setCurrentFragment(fragment)
@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                     val fragment = RecuerdosFragment.newInstance(userId)
                     setCurrentFragment(fragment)
                 }
-                R.id.menu_ubicacion -> setCurrentFragment(UbicacionFragment())
                 R.id.menu_perfil ->{
                     val fragment = PerfilFragment.newInstance(userId)
                     setCurrentFragment(fragment)

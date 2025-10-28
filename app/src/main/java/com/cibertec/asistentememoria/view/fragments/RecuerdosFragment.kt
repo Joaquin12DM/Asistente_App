@@ -42,9 +42,10 @@ class RecuerdosFragment : Fragment() {
         textEmptyRecuerdos = view.findViewById(R.id.textEmptyRecuerdos)
 
         recyclerViewRecuerdos.layoutManager = LinearLayoutManager(requireContext())
-        adapterRecuerdos = RecuerdosAdapter(emptyList())
+        adapterRecuerdos = RecuerdosAdapter(emptyList()) { momento ->
+            eliminarMomento(momento)
+        }
         recyclerViewRecuerdos.adapter = adapterRecuerdos
-
 
         val addButton = view.findViewById<MaterialButton>(R.id.buttonAddRecuerdo)
         addButton.setOnClickListener {
@@ -93,6 +94,26 @@ class RecuerdosFragment : Fragment() {
                         "Fallo en la conexión: ${exception.localizedMessage ?: exception.message}",
                         Toast.LENGTH_SHORT
                     ).show()
+                }
+            })
+    }
+
+    private fun eliminarMomento(momento: MomentoResponse) {
+        controllerMomento.deleteMomento(momento.id)
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (!isAdded) return
+                    if (response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Recuerdo eliminado", Toast.LENGTH_SHORT).show()
+                        cargarMomentos()
+                    } else {
+                        Toast.makeText(requireContext(), "Error al eliminar: ${response.code()}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    if (!isAdded) return
+                    Toast.makeText(requireContext(), "Error de conexión: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
                 }
             })
     }
