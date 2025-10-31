@@ -30,7 +30,7 @@
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del medicamento"
+        android:hint="Nombre del medicamento o Cita"
         android:layout_marginBottom="8dp" />
     <EditText
         android:id="@+id/editTextDescripcion"

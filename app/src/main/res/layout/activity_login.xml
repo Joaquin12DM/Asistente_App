@@ -6,41 +6,44 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#F5F5F5"
         tools:context=".view.activities.LoginActivity">
 
-    <!-- Logo y nombre -->
     <TextView
             android:id="@+id/textAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AlzHelper"
-            android:textSize="22sp"
+            android:text="SMARTMEMORY"
+            android:textSize="28sp"
             android:textStyle="bold"
+            android:textColor="#333333"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="104dp"/>
+            android:layout_marginTop="90dp"/>
 
     <TextView
             android:id="@+id/textSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tu asistente personal para el cuidado y bienestar"
-            android:textSize="14sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="4dp"
+            android:text="Tu asistente para el cuidado y bienestar"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/textAppName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Formulario -->
     <EditText
             android:id="@+id/editTextEmailLo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="tu@email.com"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="24dp"
+            android:minHeight="48dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintTop_toBottomOf="@id/textSubtitle"
@@ -53,7 +56,10 @@
             android:layout_height="wrap_content"
             android:hint="Contraseña"
             android:inputType="textPassword"
-            android:layout_marginTop="12dp"
+            android:minHeight="48dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintTop_toBottomOf="@id/editTextEmailLo"
@@ -63,11 +69,13 @@
     <Button
             android:id="@+id/buttonLogin"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Iniciar Sesión"
-            android:background="@color/black"
-            android:textColor="@color/white"
-            android:layout_marginTop="16dp"
+            android:backgroundTint="#3F51B5"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintTop_toBottomOf="@id/editTextPasswordLo"
@@ -79,8 +87,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿No tienes una cuenta?"
-            android:textSize="13sp"
-            android:layout_marginTop="18dp"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@id/buttonLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -90,16 +99,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Crear Cuenta Nueva"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            android:background="@color/black"
-            android:textColor="@color/white"
-            android:layout_marginTop="12dp"
+            android:background="@android:color/transparent"
+            android:textColor="#3F51B5"
+            android:textAllCaps="false"
+            android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/textNoAccount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Layout de registro oculto -->
     <include
             android:id="@+id/registerLayout"
             layout="@layout/activity_register"

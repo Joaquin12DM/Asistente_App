@@ -124,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: retrofit2.Call<UserResponse>, t: Throwable) {
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 Toast.makeText(this@LoginActivity, "Error al crear usuario", Toast.LENGTH_SHORT).show()
             }
         })
